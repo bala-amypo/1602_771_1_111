@@ -7,5 +7,8 @@ public class StudentProfile {
     private String email;
     private String department;
     private int yearLevel;
-    
+    private boolean active;
+    private LocalDateTime createdAt;
+}
+public StudentProfile(){
 }
