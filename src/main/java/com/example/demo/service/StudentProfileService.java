@@ -3,15 +3,25 @@ package com.example.demo.service;
 import com.example.demo.model.StudentProfile;
 import java.util.List;
 
-public interface StudentProfileService {
+public class StudentProfileService {
 
-    StudentProfile createStudent(StudentProfile profile);
+    public StudentProfile createStudent(StudentProfile profile) {
+        return null;
+    }
 
-    StudentProfile getStudentById(Long id);
+    public StudentProfile getStudentById(Long id) {
+        return null;
+    }
 
-    List<StudentProfile> getAllStudents();
+    public List<StudentProfile> getAllStudents() {
+        return null;
+    }
 
-    StudentProfile findByStudentId(String studentId);
+    public StudentProfile findByStudentId(String studentId) {
+        return null;
+    }
 
-    void updateStudentStatus(Long id, boolean active);
+    public StudentProfile updateStudentStatus(Long id, boolean active) {
+        return null;
+    }
 }
