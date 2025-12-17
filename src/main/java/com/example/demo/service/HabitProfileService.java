@@ -2,8 +2,10 @@ package com.example.demo.service;
 
 import com.example.demo.model.HabitProfile;
 import com.example.demo.repository.HabitProfileRepository;
+import com.example.demo.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -16,18 +18,27 @@ public class HabitProfileService {
     }
 
     public HabitProfile createOrUpdateHabit(HabitProfile habitProfile) {
-        return null;
+
+        if (habitProfile.getStudyHoursPerDay() != null &&
+                habitProfile.getStudyHoursPerDay() < 0) {
+            throw new IllegalArgumentException("study hours");
+        }
+
+        habitProfile.setUpdatedAt(LocalDateTime.now());
+        return habitProfileRepository.save(habitProfile);
     }
 
     public HabitProfile getHabitByStudent(Long studentId) {
-        return null;
+        return habitProfileRepository.findByStudentId(studentId)
+                .orElseThrow(() -> new ResourceNotFoundException("not found"));
     }
 
     public List<HabitProfile> getAllHabitProfiles() {
-        return null;
+        return habitProfileRepository.findAll();
     }
 
     public HabitProfile getHabitById(Long id) {
-        return null;
+        return habitProfileRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("not found"));
     }
 }
