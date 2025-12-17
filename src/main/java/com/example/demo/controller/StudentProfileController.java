@@ -2,14 +2,14 @@ package com.example.demo.controller;
 
 import com.example.demo.model.StudentProfile;
 import com.example.demo.service.StudentProfileService;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/students")
-@Tag(name = "Student Profiles")
+@Tag(name = "Student Profile API")
 public class StudentProfileController {
 
     private final StudentProfileService service;
@@ -20,28 +20,27 @@ public class StudentProfileController {
 
     @PostMapping
     public StudentProfile createStudent(@RequestBody StudentProfile profile) {
-        return service.save(profile);
+        return service.createStudent(profile);
     }
 
     @GetMapping("/{id}")
     public StudentProfile getStudentById(@PathVariable Long id) {
-        return service.findById(id);
+        return service.getStudentById(id);
     }
 
     @GetMapping
     public List<StudentProfile> getAllStudents() {
-        return service.findAll();
+        return service.getAllStudents();
     }
 
     @PutMapping("/{id}/status")
-    public StudentProfile updateStatus(
-            @PathVariable Long id,
-            @RequestParam boolean active) {
-        return service.updateStatus(id, active);
+    public StudentProfile updateStudentStatus(@PathVariable Long id,
+                                              @RequestParam boolean active) {
+        return service.updateStudentStatus(id, active);
     }
 
     @GetMapping("/lookup/{studentId}")
-    public StudentProfile lookupByStudentId(@PathVariable Long studentId) {
+    public StudentProfile findByStudentId(@PathVariable String studentId) {
         return service.findByStudentId(studentId);
     }
 }
