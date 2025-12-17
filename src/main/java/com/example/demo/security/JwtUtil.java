@@ -1,4 +1,4 @@
-package com.example.demo.security;
+/*package com.example.demo.security;
 
 import io.jsonwebtoken.*;
 import org.springframework.stereotype.Component;
@@ -27,3 +27,4 @@ public class JwtUtil {
                 .getSubject();
     }
 }
+*/
