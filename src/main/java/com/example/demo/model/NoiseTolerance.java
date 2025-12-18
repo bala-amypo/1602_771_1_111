@@ -1,6 +1,6 @@
 package com.example.demo.model;
 
-public enum CleanlinessLevel {
+public enum NoiseTolerance {
     LOW,
     MEDIUM,
     HIGH
