@@ -1,15 +1,47 @@
-package com.example.demo.service;
+package com.example.demo.service.impl;
 
 import com.example.demo.model.HabitProfile;
+import com.example.demo.repository.HabitProfileRepository;
+import com.example.demo.service.HabitProfileService;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 import java.util.List;
 
-public interface HabitProfileService {
+@Service
+public class HabitProfileServiceImpl implements HabitProfileService {
 
-    HabitProfile createOrUpdateHabit(HabitProfile habit);
+    private final HabitProfileRepository habitProfileRepository;
 
-    HabitProfile getHabitByStudent(Long studentId);
+    // ✅ Constructor Injection (MANDATORY for test cases)
+    public HabitProfileServiceImpl(HabitProfileRepository habitProfileRepository) {
+        this.habitProfileRepository = habitProfileRepository;
+    }
 
-    List<HabitProfile> getAllHabitProfiles();
+    @Override
+    public HabitProfile createOrUpdateHabit(HabitProfile habit) {
 
-    HabitProfile getHabitById(Long id);
+        if (habit.getStudyHoursPerDay() == null || habit.getStudyHoursPerDay() < 0) {
+            throw new IllegalArgumentException("study hours");
+        }
+
+        habit.setUpdatedAt(LocalDateTime.now());
+        return habitProfileRepository.save(habit);
+    }
+
+    @Override
+    public HabitProfile getHabitByStudent(Long studentId) {
+        return habitProfileRepository.findByStudentId(studentId)
+                .orElse(null);
+    }
+
+    @Override
+    public List<HabitProfile> getAllHabitProfiles() {
+        return habitProfileRepository.findAll();
+    }
+
+    @Override
+    public HabitProfile getHabitById(Long id) {
+        return habitProfileRepository.findById(id).orElse(null);
+    }
 }
