@@ -30,8 +30,10 @@ public class CompatibilityScoreController {
         return compatibilityScoreService.getScoreById(id);
     }
 
-    @GetMapping("/student/{studentId}")
-    public List<CompatibilityScoreRecord> getScoresForStudent(@PathVariable Long studentId) {
+    // 🔴 PATH FIXED TO MATCH TEST CASES
+    @GetMapping("/scores/student/{studentId}")
+    public List<CompatibilityScoreRecord> getScoresForStudent(
+            @PathVariable Long studentId) {
         return compatibilityScoreService.getScoresForStudent(studentId);
     }
 

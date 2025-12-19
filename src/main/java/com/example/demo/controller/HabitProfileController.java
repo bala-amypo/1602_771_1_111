@@ -23,6 +23,7 @@ public class HabitProfileController {
         return habitProfileService.createOrUpdateHabit(habitProfile);
     }
 
+    // 🔴 PATH FIXED TO MATCH TEST CASES
     @GetMapping("/student/{studentId}")
     public HabitProfile getHabitByStudent(@PathVariable Long studentId) {
         return habitProfileService.getHabitByStudent(studentId);

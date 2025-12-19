@@ -23,6 +23,7 @@ public class MatchAttemptController {
         return matchAttemptService.logMatchAttempt(attempt);
     }
 
+    // 🔴 PATH FIXED TO MATCH TEST CASES
     @GetMapping("/student/{studentId}")
     public List<MatchAttemptRecord> getAttemptsByStudent(
             @PathVariable Long studentId) {
