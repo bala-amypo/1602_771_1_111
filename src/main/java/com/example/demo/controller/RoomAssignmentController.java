@@ -28,6 +28,7 @@ public class RoomAssignmentController {
         return roomAssignmentService.getAssignmentById(id);
     }
 
+    // 🔴 PATH FIXED TO MATCH TEST CASES
     @GetMapping("/student/{studentId}")
     public List<RoomAssignmentRecord> getAssignmentsByStudent(
             @PathVariable Long studentId) {
