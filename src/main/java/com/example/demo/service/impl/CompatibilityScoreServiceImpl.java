@@ -331,5 +331,96 @@ public class StudentProfileServiceImpl implements StudentProfileService {
 }
 
 
-this is COmpatibilityScoreService.java
+this is StudentProfileServiceimpl.java
+
+package com.example.demo.service;
+
+import com.example.demo.model.CompatibilityScoreRecord;
+import java.util.List;
+
+public interface CompatibilityScoreService {
+
+    CompatibilityScoreRecord computeScore(Long studentAId, Long studentBId);
+
+    CompatibilityScoreRecord getScoreById(Long id);
+
+    List<CompatibilityScoreRecord> getScoresForStudent(Long studentId);
+
+    List<CompatibilityScoreRecord> getAllScores();
+}
+ this is under service folder but outseide the impl folder in file of CompatibilityScoreservice.java
+
+ package com.example.demo.service;
+
+import com.example.demo.model.HabitProfile;
+import java.util.List;
+
+public interface HabitProfileService {
+
+    HabitProfile createOrUpdateHabit(HabitProfile habit);
+
+    HabitProfile getHabitByStudent(Long studentId);
+
+    List<HabitProfile> getAllHabitProfiles();
+
+    HabitProfile getHabitById(Long id);
+}
+ this is habitprofileservice.java
+
+ package com.example.demo.service;
+
+import com.example.demo.model.MatchAttemptRecord;
+import java.util.List;
+
+public interface MatchAttemptService {
+
+    MatchAttemptRecord logMatchAttempt(MatchAttemptRecord attempt);
+
+    List<MatchAttemptRecord> getAttemptsByStudent(Long studentId);
+
+    MatchAttemptRecord updateAttemptStatus(Long attemptId, String status);
+
+    List<MatchAttemptRecord> getAllMatchAttempts();
+}
+ this is MatchatttemptService.java
+package com.example.demo.service;
+
+import com.example.demo.model.RoomAssignmentRecord;
+import java.util.List;
+
+public interface RoomAssignmentService {
+
+    RoomAssignmentRecord assignRoom(RoomAssignmentRecord assignment);
+
+    RoomAssignmentRecord getAssignmentById(Long id);
+
+    List<RoomAssignmentRecord> getAssignmentsByStudent(Long studentId);
+
+    List<RoomAssignmentRecord> getAllAssignments();
+
+    RoomAssignmentRecord updateStatus(Long id, String status);
+}
+ this is Roomassignemntservice/java
+
+ package com.example.demo.service;
+
+import com.example.demo.model.StudentProfile;
+import java.util.List;
+
+public interface StudentProfileService {
+
+    StudentProfile createStudent(StudentProfile profile);
+
+    StudentProfile getStudentById(Long id);
+
+    List<StudentProfile> getAllStudents();
+
+    StudentProfile findByStudentId(String studentId);
+
+    StudentProfile updateStudentStatus(Long id, boolean active);
+}
+ this is studentprofile.java"
+
+ 
+
 
