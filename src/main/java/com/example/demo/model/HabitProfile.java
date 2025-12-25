@@ -1,105 +1,89 @@
 package com.example.demo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "habit_profiles")
 public class HabitProfile {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private Long studentId;
-
-    @Enumerated(EnumType.STRING)
-    private SleepSchedule sleepSchedule;
-
-    private Integer studyHoursPerDay;
-
+    
+    @OneToOne
+    @JoinColumn(name = "student_id")
+    private StudentProfile student;
+    
+    private Boolean smoking;
+    private Boolean drinking;
+    private String sleepTime;
+    private String wakeTime;
+    
     @Enumerated(EnumType.STRING)
     private CleanlinessLevel cleanlinessLevel;
-
+    
     @Enumerated(EnumType.STRING)
-    private NoiseTolerance noiseTolerance;
-
+    private NoiseTolerance noisePreference;
+    
+    private String studyStyle;
+    
     @Enumerated(EnumType.STRING)
     private SocialPreference socialPreference;
-
+    
+    private String visitorsFrequency;
+    private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public HabitProfile() {
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
     }
 
-    public Long getId() {
-        return id;
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public HabitProfile() {}
 
-    public Long getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
-    }
-
-    public SleepSchedule getSleepSchedule() {
-        return sleepSchedule;
-    }
-
-    public void setSleepSchedule(SleepSchedule sleepSchedule) {
-        this.sleepSchedule = sleepSchedule;
-    }
-
-    public Integer getStudyHoursPerDay() {
-        return studyHoursPerDay;
-    }
-
-    public void setStudyHoursPerDay(Integer studyHoursPerDay) {
-        this.studyHoursPerDay = studyHoursPerDay;
-    }
-
-    public CleanlinessLevel getCleanlinessLevel() {
-        return cleanlinessLevel;
-    }
-
-    public void setCleanlinessLevel(CleanlinessLevel cleanlinessLevel) {
-        this.cleanlinessLevel = cleanlinessLevel;
-    }
-
-    public NoiseTolerance getNoiseTolerance() {
-        return noiseTolerance;
-    }
-
-    public void setNoiseTolerance(NoiseTolerance noiseTolerance) {
-        this.noiseTolerance = noiseTolerance;
-    }
-
-    public SocialPreference getSocialPreference() {
-        return socialPreference;
-    }
-
-    public void setSocialPreference(SocialPreference socialPreference) {
-        this.socialPreference = socialPreference;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
+    // ALL GETTERS AND SETTERS
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    
+    public StudentProfile getStudent() { return student; }
+    public void setStudent(StudentProfile student) { this.student = student; }
+    
+    public Boolean getSmoking() { return smoking; }
+    public void setSmoking(Boolean smoking) { this.smoking = smoking; }
+    
+    public Boolean getDrinking() { return drinking; }
+    public void setDrinking(Boolean drinking) { this.drinking = drinking; }
+    
+    public String getSleepTime() { return sleepTime; }
+    public void setSleepTime(String sleepTime) { this.sleepTime = sleepTime; }
+    
+    public String getWakeTime() { return wakeTime; }
+    public void setWakeTime(String wakeTime) { this.wakeTime = wakeTime; }
+    
+    public CleanlinessLevel getCleanlinessLevel() { return cleanlinessLevel; }
+    public void setCleanlinessLevel(CleanlinessLevel cleanlinessLevel) { this.cleanlinessLevel = cleanlinessLevel; }
+    
+    public NoiseTolerance getNoisePreference() { return noisePreference; }
+    public void setNoisePreference(NoiseTolerance noisePreference) { this.noisePreference = noisePreference; }
+    
+    public String getStudyStyle() { return studyStyle; }
+    public void setStudyStyle(String studyStyle) { this.studyStyle = studyStyle; }
+    
+    public SocialPreference getSocialPreference() { return socialPreference; }
+    public void setSocialPreference(SocialPreference socialPreference) { this.socialPreference = socialPreference; }
+    
+    public String getVisitorsFrequency() { return visitorsFrequency; }
+    public void setVisitorsFrequency(String visitorsFrequency) { this.visitorsFrequency = visitorsFrequency; }
+    
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+    
+    public LocalDateTime getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
 }
