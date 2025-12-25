@@ -1,76 +1,50 @@
 package com.example.demo.dto;
 
-import com.example.demo.model.CleanlinessLevel;
-import com.example.demo.model.NoiseTolerance;
-import com.example.demo.model.SleepSchedule;
-import com.example.demo.model.SocialPreference;
-
 public class HabitProfileDto {
-
     private Long id;
     private Long studentId;
-    private SleepSchedule sleepSchedule;
-    private Integer studyHoursPerDay;
-    private CleanlinessLevel cleanlinessLevel;
-    private NoiseTolerance noiseTolerance;
-    private SocialPreference socialPreference;
+    private Boolean smoking;
+    private Boolean drinking;
+    private String sleepTime;
+    private String wakeTime;
+    private String cleanlinessLevel;
+    private String noisePreference;
+    private String studyStyle;
+    private String socialPreference;
+    private String visitorsFrequency;
 
-    public HabitProfileDto() {
-    }
+    public HabitProfileDto() {}
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
-    }
-
-    public SleepSchedule getSleepSchedule() {
-        return sleepSchedule;
-    }
-
-    public void setSleepSchedule(SleepSchedule sleepSchedule) {
-        this.sleepSchedule = sleepSchedule;
-    }
-
-    public Integer getStudyHoursPerDay() {
-        return studyHoursPerDay;
-    }
-
-    public void setStudyHoursPerDay(Integer studyHoursPerDay) {
-        this.studyHoursPerDay = studyHoursPerDay;
-    }
-
-    public CleanlinessLevel getCleanlinessLevel() {
-        return cleanlinessLevel;
-    }
-
-    public void setCleanlinessLevel(CleanlinessLevel cleanlinessLevel) {
-        this.cleanlinessLevel = cleanlinessLevel;
-    }
-
-    public NoiseTolerance getNoiseTolerance() {
-        return noiseTolerance;
-    }
-
-    public void setNoiseTolerance(NoiseTolerance noiseTolerance) {
-        this.noiseTolerance = noiseTolerance;
-    }
-
-    public SocialPreference getSocialPreference() {
-        return socialPreference;
-    }
-
-    public void setSocialPreference(SocialPreference socialPreference) {
-        this.socialPreference = socialPreference;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    
+    public Long getStudentId() { return studentId; }
+    public void setStudentId(Long studentId) { this.studentId = studentId; }
+    
+    public Boolean getSmoking() { return smoking; }
+    public void setSmoking(Boolean smoking) { this.smoking = smoking; }
+    
+    public Boolean getDrinking() { return drinking; }
+    public void setDrinking(Boolean drinking) { this.drinking = drinking; }
+    
+    public String getSleepTime() { return sleepTime; }
+    public void setSleepTime(String sleepTime) { this.sleepTime = sleepTime; }
+    
+    public String getWakeTime() { return wakeTime; }
+    public void setWakeTime(String wakeTime) { this.wakeTime = wakeTime; }
+    
+    public String getCleanlinessLevel() { return cleanlinessLevel; }
+    public void setCleanlinessLevel(String cleanlinessLevel) { this.cleanlinessLevel = cleanlinessLevel; }
+    
+    public String getNoisePreference() { return noisePreference; }
+    public void setNoisePreference(String noisePreference) { this.noisePreference = noisePreference; }
+    
+    public String getStudyStyle() { return studyStyle; }
+    public void setStudyStyle(String studyStyle) { this.studyStyle = studyStyle; }
+    
+    public String getSocialPreference() { return socialPreference; }
+    public void setSocialPreference(String socialPreference) { this.socialPreference = socialPreference; }
+    
+    public String getVisitorsFrequency() { return visitorsFrequency; }
+    public void setVisitorsFrequency(String visitorsFrequency) { this.visitorsFrequency = visitorsFrequency; }
 }
