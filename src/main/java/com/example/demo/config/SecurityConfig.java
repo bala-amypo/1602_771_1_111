@@ -291,4 +291,176 @@ public class AuthRequest {
     }
 }
 
-this is AuthR
+this is AuthRequest.java
+
+package com.example.demo.dto;
+
+public class AuthResponse {
+
+    private String token;
+    private Long userId;
+    private String email;
+    private String role;
+
+    public AuthResponse() {
+    }
+
+    public AuthResponse(String token, Long userId, String email, String role) {
+        this.token = token;
+        this.userId = userId;
+        this.email = email;
+        this.role = role;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+}
+this is AuthResponse.java
+
+package com.example.demo.dto;
+
+public class HabitProfileDto {
+    private Long id;
+    private Long studentId;
+    private Boolean smoking;
+    private Boolean drinking;
+    private String sleepTime;
+    private String wakeTime;
+    private String cleanlinessLevel;
+    private String noisePreference;
+    private String studyStyle;
+    private String socialPreference;
+    private String visitorsFrequency;
+
+    public HabitProfileDto() {}
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    
+    public Long getStudentId() { return studentId; }
+    public void setStudentId(Long studentId) { this.studentId = studentId; }
+    
+    public Boolean getSmoking() { return smoking; }
+    public void setSmoking(Boolean smoking) { this.smoking = smoking; }
+    
+    public Boolean getDrinking() { return drinking; }
+    public void setDrinking(Boolean drinking) { this.drinking = drinking; }
+    
+    public String getSleepTime() { return sleepTime; }
+    public void setSleepTime(String sleepTime) { this.sleepTime = sleepTime; }
+    
+    public String getWakeTime() { return wakeTime; }
+    public void setWakeTime(String wakeTime) { this.wakeTime = wakeTime; }
+    
+    public String getCleanlinessLevel() { return cleanlinessLevel; }
+    public void setCleanlinessLevel(String cleanlinessLevel) { this.cleanlinessLevel = cleanlinessLevel; }
+    
+    public String getNoisePreference() { return noisePreference; }
+    public void setNoisePreference(String noisePreference) { this.noisePreference = noisePreference; }
+    
+    public String getStudyStyle() { return studyStyle; }
+    public void setStudyStyle(String studyStyle) { this.studyStyle = studyStyle; }
+    
+    public String getSocialPreference() { return socialPreference; }
+    public void setSocialPreference(String socialPreference) { this.socialPreference = socialPreference; }
+    
+    public String getVisitorsFrequency() { return visitorsFrequency; }
+    public void setVisitorsFrequency(String visitorsFrequency) { this.visitorsFrequency = visitorsFrequency; }
+}
+
+this is HabitProfileDto.java
+package com.example.demo.dto;
+
+import java.time.LocalTime;
+
+public class StudentProfileDto {
+    private Long id;
+    private Long userId;
+    private String name;
+    private Integer age;
+    private String course;
+    private Integer yearOfStudy;
+    private String gender;
+    private String roomTypePreference;
+    private LocalTime sleepTime;
+    private LocalTime wakeTime;
+    private Boolean smoking;
+    private Boolean drinking;
+    private String noiseTolerance;
+    private Integer studyTime;
+
+    public StudentProfileDto() {}
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    
+    public Long getUserId() { return userId; }
+    public void setUserId(Long userId) { this.userId = userId; }
+    
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    
+    public Integer getAge() { return age; }
+    public void setAge(Integer age) { this.age = age; }
+    
+    public String getCourse() { return course; }
+    public void setCourse(String course) { this.course = course; }
+    
+    public Integer getYearOfStudy() { return yearOfStudy; }
+    public void setYearOfStudy(Integer yearOfStudy) { this.yearOfStudy = yearOfStudy; }
+    
+    public String getGender() { return gender; }
+    public void setGender(String gender) { this.gender = gender; }
+    
+    public String getRoomTypePreference() { return roomTypePreference; }
+    public void setRoomTypePreference(String roomTypePreference) { this.roomTypePreference = roomTypePreference; }
+    
+    public LocalTime getSleepTime() { return sleepTime; }
+    public void setSleepTime(LocalTime sleepTime) { this.sleepTime = sleepTime; }
+    
+    public LocalTime getWakeTime() { return wakeTime; }
+    public void setWakeTime(LocalTime wakeTime) { this.wakeTime = wakeTime; }
+    
+    public Boolean getSmoking() { return smoking; }
+    public void setSmoking(Boolean smoking) { this.smoking = smoking; }
+    
+    public Boolean getDrinking() { return drinking; }
+    public void setDrinking(Boolean drinking) { this.drinking = drinking; }
+    
+    public String getNoiseTolerance() { return noiseTolerance; }
+    public void setNoiseTolerance(String noiseTolerance) { this.noiseTolerance = noiseTolerance; }
+    
+    public Integer getStudyTime() { return studyTime; }
+    public void setStudyTime(Integer studyTime) { this.studyTime = studyTime; }
+}
+
+this is StudentProfileDto.java
