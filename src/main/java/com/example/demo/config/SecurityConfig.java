@@ -131,4 +131,164 @@ public class AuthController {
     }
 }
 
-this i sAuthC
+this i sAuthController
+package com.example.demo.controller;
+
+import com.example.demo.dto.HabitProfileDto;
+import com.example.demo.model.HabitProfile;
+import com.example.demo.service.HabitProfileService;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/habits")
+@Tag(name = "Habit Profiles")
+public class HabitProfileController {
+    private final HabitProfileService service;
+
+    public HabitProfileController(HabitProfileService service) {
+        this.service = service;
+    }
+
+    @PostMapping("/{studentId}")
+    public ResponseEntity<HabitProfile> createOrUpdateHabitProfile(@PathVariable Long studentId,
+                                                                   @RequestBody HabitProfileDto dto) {
+        HabitProfile habit = service.createOrUpdate(studentId, dto);
+        return ResponseEntity.ok(habit);
+    }
+
+    @GetMapping("/{studentId}")
+    public ResponseEntity<HabitProfile> getHabitProfile(@PathVariable Long studentId) {
+        HabitProfile habit = service.getForStudent(studentId);
+        return ResponseEntity.ok(habit);
+    }
+}
+
+this is HabitProfileController
+
+package com.example.demo.controller;
+
+import com.example.demo.model.MatchResult;
+import com.example.demo.service.MatchService;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
+
+@RestController
+@RequestMapping("/api/matches")
+@Tag(name = "Matches")
+public class MatchController {
+    private final MatchService service;
+
+    public MatchController(MatchService service) {
+        this.service = service;
+    }
+
+    @PostMapping("/compute")
+    public ResponseEntity<MatchResult> computeMatch(@RequestBody Map<String, Long> request) {
+        Long studentAId = request.get("studentAId");
+        Long studentBId = request.get("studentBId");
+        MatchResult result = service.computeMatch(studentAId, studentBId);
+        return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/student/{studentId}")
+    public ResponseEntity<List<MatchResult>> getMatchesForStudent(@PathVariable Long studentId) {
+        List<MatchResult> matches = service.getMatchesFor(studentId);
+        return ResponseEntity.ok(matches);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<MatchResult> getMatchById(@PathVariable Long id) {
+        MatchResult match = service.getById(id);
+        return ResponseEntity.ok(match);
+    }
+}
+
+this is MatchController
+package com.example.demo.controller;
+
+import com.example.demo.dto.StudentProfileDto;
+import com.example.demo.model.StudentProfile;
+import com.example.demo.service.StudentProfileService;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/students")
+@Tag(name = "Student Profiles")
+public class StudentProfileController {
+    private final StudentProfileService service;
+
+    public StudentProfileController(StudentProfileService service) {
+        this.service = service;
+    }
+
+    @PostMapping
+    public ResponseEntity<StudentProfile> createProfile(@RequestBody StudentProfileDto dto) {
+        StudentProfile profile = service.createProfile(dto, dto.getUserId());
+        return ResponseEntity.ok(profile);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<StudentProfile> updateProfile(@PathVariable Long id,
+                                                        @RequestBody StudentProfileDto dto) {
+        StudentProfile profile = service.updateProfile(id, dto);
+        return ResponseEntity.ok(profile);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<StudentProfile> getProfile(@PathVariable Long id) {
+        StudentProfile profile = service.getProfile(id);
+        return ResponseEntity.ok(profile);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<StudentProfile>> getAllProfiles() {
+        List<StudentProfile> profiles = service.getAllProfiles();
+        return ResponseEntity.ok(profiles);
+    }
+}
+this is StudentProfileController.java
+
+
+package com.example.demo.dto;
+
+public class AuthRequest {
+
+    private String email;
+    private String password;
+
+    public AuthRequest() {
+    }
+
+    public AuthRequest(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+}
+
+this is AuthR
