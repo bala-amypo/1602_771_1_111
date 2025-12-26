@@ -7,6 +7,7 @@ import io.jsonwebtoken.security.Keys;
 import java.security.Key;
 import java.util.Date;
 
+@Component
 public class JwtUtil {
 
     private final Key key = Keys.hmacShaKeyFor("mysecretkeymysecretkeymysecretkey12".getBytes());
