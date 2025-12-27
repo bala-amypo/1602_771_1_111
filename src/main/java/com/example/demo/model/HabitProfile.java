@@ -1,50 +1,49 @@
-// CompatibilityScoreRecord.java
 package com.example.demo.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "compatibility_scores")
-public class CompatibilityScoreRecord {
-
-    public enum CompatibilityLevel { POOR, AVERAGE, GOOD, EXCELLENT }
+@Table(name = "habit_profiles")
+public class HabitProfile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long studentAId;
-    private Long studentBId;
+    private Long studentId;
 
-    private Double score;
+    private int studyHoursPerDay;
 
     @Enumerated(EnumType.STRING)
-    private CompatibilityLevel compatibilityLevel;
+    private SleepSchedule sleepSchedule;
 
-    private String detailsJson;
+    @Enumerated(EnumType.STRING)
+    private CleanlinessLevel cleanlinessLevel;
 
-    private LocalDateTime computedAt = LocalDateTime.now();
+    @Enumerated(EnumType.STRING)
+    private NoiseTolerance noiseTolerance;
 
-    // getters and setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    @Enumerated(EnumType.STRING)
+    private SocialPreference socialPreference;
 
-    public Long getStudentAId() { return studentAId; }
-    public void setStudentAId(Long studentAId) { this.studentAId = studentAId; }
+    private LocalDateTime updatedAt;
 
-    public Long getStudentBId() { return studentBId; }
-    public void setStudentBId(Long studentBId) { this.studentBId = studentBId; }
+    public enum SleepSchedule {
+        EARLY, REGULAR, LATE
+    }
 
-    public Double getScore() { return score; }
-    public void setScore(Double score) { this.score = score; }
+    public enum CleanlinessLevel {
+        LOW, MEDIUM, HIGH
+    }
 
-    public CompatibilityLevel getCompatibilityLevel() { return compatibilityLevel; }
-    public void setCompatibilityLevel(CompatibilityLevel compatibilityLevel) { this.compatibilityLevel = compatibilityLevel; }
+    public enum NoiseTolerance {
+        LOW, MEDIUM, HIGH
+    }
 
-    public String getDetailsJson() { return detailsJson; }
-    public void setDetailsJson(String detailsJson) { this.detailsJson = detailsJson; }
+    public enum SocialPreference {
+        INTROVERT, AMBIVERT, EXTROVERT
+    }
 
-    public LocalDateTime getComputedAt() { return computedAt; }
-    public void setComputedAt(LocalDateTime computedAt) { this.computedAt = computedAt; }
+    // getters & setters
 }
