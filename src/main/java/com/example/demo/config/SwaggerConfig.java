@@ -19,7 +19,7 @@ public class SwaggerConfig {
                         .title("Hostel Roommate Compatibility Matcher API")
                         .version("1.0"))
                 .servers(List.of(
-                        new Server().url("https://9126.pro604cr.amypo.ai")
+                        new Server().url("https://9528.pro604cr.amypo.ai")
                 ));
     }
 }
